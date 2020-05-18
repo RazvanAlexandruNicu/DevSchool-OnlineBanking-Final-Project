@@ -1,0 +1,22 @@
+Rest API entry points:
+
+-POST {"id":"accid", "accountNumber":"acc1", "pin":"pinstring"} ../bankAccount
+# Add bank account to database
+
+-DELETE ../bankAccount/{id}
+# Delete bank account with id = {id} from database
+
+-GET ../bankAccount/all
+# Get all bank accounts
+
+-POST { "sourceAccount" : "srcAcc", "destinationAccount" : "dstAcc", "sum" : 999, "miliseconds" : 99 } ../transaction
+# Add transaction in database. miliseconds is number of miliseconds that will be converted by client to get the local date
+# of the transaction
+
+-GET ../transaction/all
+# Get all transactions from database
+
+-GET ../transaction/all/{id}
+# Get all transactions from database for an account with id = {id} <=> both credit and debit
+
+The session is made using session storage -> the current account logged is stored there
